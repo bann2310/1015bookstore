@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1015bookstore.data", "1015b
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1015bookstore.service", "1015bookstore.service\1015bookstore.service.csproj", "{8BFA429B-5CA5-4196-8091-4BC79CDDDDB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1015bookstore.unittest", "1015bookstore.unittest\1015bookstore.unittest.csproj", "{C3DB3900-60E9-409D-84B7-CBFD02A8333F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1015bookstore.web", "1015bookstore.web\1015bookstore.web.csproj", "{D05666B7-5B9E-462C-9007-6876424B2D4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{8BFA429B-5CA5-4196-8091-4BC79CDDDDB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BFA429B-5CA5-4196-8091-4BC79CDDDDB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BFA429B-5CA5-4196-8091-4BC79CDDDDB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DB3900-60E9-409D-84B7-CBFD02A8333F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DB3900-60E9-409D-84B7-CBFD02A8333F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DB3900-60E9-409D-84B7-CBFD02A8333F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DB3900-60E9-409D-84B7-CBFD02A8333F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D05666B7-5B9E-462C-9007-6876424B2D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05666B7-5B9E-462C-9007-6876424B2D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05666B7-5B9E-462C-9007-6876424B2D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05666B7-5B9E-462C-9007-6876424B2D4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

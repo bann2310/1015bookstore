@@ -55,6 +55,28 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\1015bookstore.common\1015bookstore.common.csproj">
+      <Project>{dcd0b08b-6487-438b-948a-7acd42dddad9}</Project>
+      <Name>1015bookstore.common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\1015bookstore.data\1015bookstore.data.csproj">
+      <Project>{b15afb92-ac59-4838-89ca-ed08f77ea6e4}</Project>
+      <Name>1015bookstore.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\1015bookstore.model\1015bookstore.model.csproj">
+      <Project>{4bdd6664-76f7-48a9-af21-323979c1555f}</Project>
+      <Name>1015bookstore.model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\1015bookstore.service\1015bookstore.service.csproj">
+      <Project>{8bfa429b-5ca5-4196-8091-4bc79cddddb4}</Project>
+      <Name>1015bookstore.service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\1015bookstore.web\1015bookstore.web.csproj">
+      <Project>{d05666b7-5b9e-462c-9007-6876424b2d4c}</Project>
+      <Name>1015bookstore.web</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
