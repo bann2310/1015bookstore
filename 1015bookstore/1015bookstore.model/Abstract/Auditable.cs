@@ -16,5 +16,9 @@ namespace _1015bookstore.model.Abstract
         [Required]
         public bool status { get; set; }
 
+        public Auditable() {
+            createdtime = DateTime.Now;
+        }
+
     }
 }

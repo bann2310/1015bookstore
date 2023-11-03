@@ -59,7 +59,7 @@
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDetail.cs" />
-    <Compile Include="Models\PromotionalCodecs.cs" />
+    <Compile Include="Models\PromotionalCode.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\TypedCategories_Promotionals.cs" />
     <Compile Include="Models\TypedProducts_Promotionals.cs" />

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace _1015bookstore.model.Models
 {
     [Table("PromotionalCodes")]
-    public class PromotionalCodecs : Auditable
+    public class PromotionalCode : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

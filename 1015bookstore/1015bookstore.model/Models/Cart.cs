@@ -17,9 +17,5 @@ namespace _1015bookstore.model.Models
 
         [ForeignKey("user_id")]
         public virtual User user { get; set; }
-
-
-
-
     }
 }
