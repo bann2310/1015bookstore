@@ -1,4 +1,6 @@
 using _1015bookstore.web.Data;
+using _1015bookstore.web.Repository;
+using _1015bookstore.web.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,8 @@ builder.Services.AddDbContext<MyDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("MyDB"));
 
 });
+
+builder.Services.AddScoped<IUserRepository,UserRepository>();
 
 var app = builder.Build();
 
