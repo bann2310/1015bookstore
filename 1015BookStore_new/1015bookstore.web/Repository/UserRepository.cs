@@ -83,6 +83,8 @@ namespace _1015bookstore.web.Repository
                 _user.firstname = user.firstname;
                 _user.lastname = user.lastname;
                 _user.phone = user.phone;
+                _user.updatedtime = DateTime.Now;
+                dbcontext.SaveChanges();
             }
         }
     }

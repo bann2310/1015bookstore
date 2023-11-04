@@ -19,6 +19,7 @@ builder.Services.AddDbContext<MyDbContext>(option =>
 });
 
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IUserAddressRepository,UserAddressRepository>();
 
 var app = builder.Build();
 
