@@ -17,7 +17,7 @@ namespace _1015bookstore.web.Data
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
-        public DbSet<PromotionalCode> PromotionCodes { get; set; }
+        public DbSet<PromotionalCode> PromotionalCodes { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<TypedCategories_Promotionals> typedCategories_Promotionals { get; set; }
         public DbSet<TypedProducts_Promotionals> typedProducts_Promotionals { get; set; }
@@ -50,7 +50,6 @@ namespace _1015bookstore.web.Data
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.HasKey(e => e.id);
-
             });
 
             modelBuilder.Entity<Order>(entity =>

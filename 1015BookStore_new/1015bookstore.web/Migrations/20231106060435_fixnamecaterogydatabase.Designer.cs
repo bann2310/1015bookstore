@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1015bookstore.web.Data;
 
@@ -11,9 +12,11 @@ using _1015bookstore.web.Data;
 namespace _1015bookstore.web.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231106060435_fixnamecaterogydatabase")]
+    partial class fixnamecaterogydatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +59,10 @@ namespace _1015bookstore.web.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int>("categoryparentid")
+                    b.Property<int?>("CategoryParentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Categoryid")
                         .HasColumnType("int");
 
                     b.Property<string>("createdby")
@@ -84,6 +90,10 @@ namespace _1015bookstore.web.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("id");
+
+                    b.HasIndex("CategoryParentId");
+
+                    b.HasIndex("Categoryid");
 
                     b.ToTable("Categories");
                 });
@@ -626,6 +636,19 @@ namespace _1015bookstore.web.Migrations
                     b.Navigation("user");
                 });
 
+            modelBuilder.Entity("_1015bookstore.web.Data.Entity.Category", b =>
+                {
+                    b.HasOne("_1015bookstore.web.Data.Entity.Category", "ParentCategory")
+                        .WithMany()
+                        .HasForeignKey("CategoryParentId");
+
+                    b.HasOne("_1015bookstore.web.Data.Entity.Category", null)
+                        .WithMany("categories")
+                        .HasForeignKey("Categoryid");
+
+                    b.Navigation("ParentCategory");
+                });
+
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.Order", b =>
                 {
                     b.HasOne("_1015bookstore.web.Data.Entity.User", "user")
@@ -822,6 +845,8 @@ namespace _1015bookstore.web.Migrations
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.Category", b =>
                 {
+                    b.Navigation("categories");
+
                     b.Navigation("products");
 
                     b.Navigation("typedcategories_promotionals");

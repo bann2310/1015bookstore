@@ -24,12 +24,10 @@ namespace _1015bookstore.web.Repository
                 foreach (var item in ad)
                 {
                     item.is_default = false;
-                    dbcontext.SaveChanges();
                 }
             }    
             var _address = new UserAddress { 
                 user_id = address.user_id,
-                user = dbcontext.Users.Single(e => e.id == address.user_id),
                 is_default = address.is_default,
                 receiver_name = address.receiver_name,
                 receiver_phone = address.receiver_phone,

@@ -12,7 +12,9 @@ namespace _1015bookstore.web.Data.Entity
         [MaxLength(50)]
         [Column(TypeName = "nvarchar")]
         public string name { get; set; }
-       
+
+        public int categoryparentid { get; set; }
+
         [MaxLength(50)]
         [Column(TypeName = "varchar")]
         public string createdby { get; set; }
@@ -21,8 +23,6 @@ namespace _1015bookstore.web.Data.Entity
         [Column(TypeName = "varchar")]
         public string updatedby { get; set; }
 
-        // Khóa ngoại với Category
-        public virtual ICollection<Category> categories { get; set; }
         // Khóa ngoại với Product
         public virtual ICollection<Product> products { get; set; }
         // Khóa ngoại với TypedCategories_Promotionals
@@ -30,7 +30,6 @@ namespace _1015bookstore.web.Data.Entity
         
         public Category()
         {
-            categories = new List<Category>();
             products = new List<Product>();
             typedcategories_promotionals = new List<TypedCategories_Promotionals>();
         }

@@ -20,6 +20,9 @@ builder.Services.AddDbContext<MyDbContext>(option =>
 
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddScoped<IUserAddressRepository,UserAddressRepository>();
+builder.Services.AddScoped<IUserTypeRepository,UserTypeRepository>();
+builder.Services.AddScoped<IPromotionalCodeRepository,PromotionalCodeRepository>();
+builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 
 var app = builder.Build();
 
