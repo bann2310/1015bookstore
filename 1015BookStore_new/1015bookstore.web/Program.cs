@@ -23,6 +23,13 @@ builder.Services.AddScoped<IUserAddressRepository,UserAddressRepository>();
 builder.Services.AddScoped<IUserTypeRepository,UserTypeRepository>();
 builder.Services.AddScoped<IPromotionalCodeRepository,PromotionalCodeRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddScoped<IProductRepository,ProductRepository>();
+builder.Services.AddScoped<ICartItemRepository,CartItemRepository>();
+builder.Services.AddScoped<ITypedCategories_PromotionalsRepository,TypedCategories_PromotionalsRepository>();
+builder.Services.AddScoped<ITypedProducts_PromotionalsRepository, TypedProducts_PromotionalsRepository>();
+builder.Services.AddScoped<ITypedUsers_PromotionalsRepository, TypedUsers_PromotionalsRepository>();
+builder.Services.AddScoped<ITypedUserTypes_PromotionalsRepository, TypedUserTypes_PromotionalsRepository>();
+builder.Services.AddScoped<ITypedUsers_UserTypesRepository, TypedUsers_UserTypesRepository>();
 
 var app = builder.Build();
 

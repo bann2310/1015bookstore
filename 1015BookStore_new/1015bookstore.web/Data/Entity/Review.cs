@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _1015bookstore.web.Data.Entity
 {
+    public enum status
+    {
+        New = 1, Normal = 2, Delete = -1
+    }
     [Table("Reviews")]
     public class Review
     {
@@ -22,7 +26,7 @@ namespace _1015bookstore.web.Data.Entity
         [Column(TypeName = "ntext")]
         public string contents { get; set; }
 
-        public bool status { get; set; }
+        public status is_status { get; set; }
 
         public DateTime createdtime { get; set; }
 
@@ -31,5 +35,11 @@ namespace _1015bookstore.web.Data.Entity
         [MaxLength(50)]
         [Column(TypeName = "varchar")]
         public string deletedby { get; set; }
+
+        public Review ()
+        {
+            createdtime = DateTime.Now;
+            is_status = status.Normal;
+        }
     }
 }

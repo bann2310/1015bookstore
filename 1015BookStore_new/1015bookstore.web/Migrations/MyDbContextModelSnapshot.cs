@@ -45,7 +45,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("user_id");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.Category", b =>
@@ -85,7 +85,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.Order", b =>
@@ -126,7 +126,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("user_id");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.OrderDetail", b =>
@@ -147,7 +147,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("order_id");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.Product", b =>
@@ -234,7 +234,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("category_id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.ProductDetail", b =>
@@ -256,7 +256,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasKey("product_id");
 
-                    b.ToTable("ProductDetails");
+                    b.ToTable("ProductDetails", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.PromotionalCode", b =>
@@ -306,7 +306,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("PromotionalCodes");
+                    b.ToTable("PromotionalCodes", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.Review", b =>
@@ -350,7 +350,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("user_id");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.TypedCategories_Promotionals", b =>
@@ -368,7 +368,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("promotional_id");
 
-                    b.ToTable("TypedCategories_Promotionals");
+                    b.ToTable("TypedCategories_Promotionals", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.TypedProducts_Promotionals", b =>
@@ -386,7 +386,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("promotional_id");
 
-                    b.ToTable("TypedProducts_Promotionals");
+                    b.ToTable("TypedProducts_Promotionals", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.TypedUserTypes_Promotionals", b =>
@@ -404,7 +404,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("promotional_id");
 
-                    b.ToTable("TypedUserTypes_Promotionals");
+                    b.ToTable("TypedUserTypes_Promotionals", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.TypedUsers_Promotionals", b =>
@@ -422,7 +422,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("promotional_id");
 
-                    b.ToTable("TypedUsers_Promotionals");
+                    b.ToTable("TypedUsers_Promotionals", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.TypedUsers_UserTypes", b =>
@@ -440,7 +440,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("usertype_id");
 
-                    b.ToTable("TypedUsers_UserTypes");
+                    b.ToTable("TypedUsers_UserTypes", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.User", b =>
@@ -491,7 +491,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.UserAddress", b =>
@@ -556,7 +556,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasIndex("user_id");
 
-                    b.ToTable("UserAddresses");
+                    b.ToTable("UserAddresses", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.UserType", b =>
@@ -603,7 +603,7 @@ namespace _1015bookstore.web.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("UserTypes");
+                    b.ToTable("UserTypes", (string)null);
                 });
 
             modelBuilder.Entity("_1015bookstore.web.Data.Entity.CartItem", b =>

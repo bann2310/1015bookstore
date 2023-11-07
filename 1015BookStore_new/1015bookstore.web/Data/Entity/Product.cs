@@ -1,6 +1,7 @@
 ﻿using _1015bookstore.web.Data.Abstract;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace _1015bookstore.web.Data.Entity
 {
@@ -29,17 +30,17 @@ namespace _1015bookstore.web.Data.Entity
         public float price { get; set; }
 
         [Range(0, float.MaxValue)]
-        public float? starts { get; set; }
+        public float starts { get; set; }
 
         [Range(0, int.MaxValue)]
-        public int? reviews { get; set; }
+        public int reviews { get; set; }
 
         [Range(0, int.MaxValue)]
-        public int? buy_count { get; set; }
+        public int buy_count { get; set; }
 
-        public bool? flashsale { get; set; }
+        public bool flashsale { get; set; }
 
-        public int? like_count { get; set; }
+        public int like_count { get; set; }
 
         [Range(0, int.MaxValue)]
         public int waranty { get; set; }
@@ -48,7 +49,7 @@ namespace _1015bookstore.web.Data.Entity
         public int quanity { get; set; }
 
         [Range(0, int.MaxValue)]
-        public int? view_count { get; set; }
+        public int view_count { get; set; }
 
         [MaxLength(100)]
         [Column(TypeName = "nvarchar")]
@@ -76,6 +77,13 @@ namespace _1015bookstore.web.Data.Entity
 
         public Product()
         {
+            view_count = 0;
+            like_count = 0;
+            buy_count = 0;
+            reviews = 0;
+            starts = 0;
+            more_image = null;
+            image = null;
             cartitems = new List<CartItem>();
             orderdetails = new List<OrderDetail>();
             reviews_ = new List<Review>();

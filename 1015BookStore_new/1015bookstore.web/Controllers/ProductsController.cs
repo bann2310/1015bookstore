@@ -1,7 +1,5 @@
 ﻿using _1015bookstore.web.Model;
-using _1015bookstore.web.Repository;
 using _1015bookstore.web.Repository.IRepository;
-using _1015bookstore.web.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,13 +7,13 @@ namespace _1015bookstore.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly ICategoryRepository categoryreposity;
+        private readonly IProductRepository productreposity;
 
-        public CategoriesController(ICategoryRepository _categoryreposity)
+        public ProductsController(IProductRepository _productreposity)
         {
-            categoryreposity = _categoryreposity;
+            productreposity = _productreposity;
         }
 
         [HttpGet]
@@ -23,7 +21,7 @@ namespace _1015bookstore.web.Controllers
         {
             try
             {
-                return Ok(categoryreposity.GetAll());
+                return Ok(productreposity.GetAll());
             }
             catch
             {
@@ -36,7 +34,7 @@ namespace _1015bookstore.web.Controllers
         {
             try
             {
-                var data = categoryreposity.GetById(id);
+                var data = productreposity.GetById(id);
                 if (data != null)
                 {
                     return Ok(data);
@@ -53,11 +51,11 @@ namespace _1015bookstore.web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(int userid, CategoryModel cate)
+        public IActionResult Add(int userid, ProductModel product)
         {
             try
             {
-                return Ok(categoryreposity.Add(userid, cate));
+                return Ok(productreposity.Add(userid, product));
             }
             catch
             {
@@ -70,7 +68,7 @@ namespace _1015bookstore.web.Controllers
         {
             try
             {
-                categoryreposity.Delete(id);
+                productreposity.Delete(id);
                 return Ok();
             }
             catch
@@ -80,38 +78,12 @@ namespace _1015bookstore.web.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, int userid, CategoryModel cate)
+        public IActionResult Update(int id, int userid, ProductModel product)
         {
             try
             {
-                categoryreposity.Update(id, userid, cate);
+                productreposity.Update(id, userid, product);
                 return NoContent();
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        [HttpGet("GetFull")]
-        public IActionResult GetFull()
-        {
-            try
-            {
-                return Ok(categoryreposity.GetFull());
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        [HttpGet("GetFullById")]
-        public IActionResult GetFullById(int id)
-        {
-            try
-            {
-                return Ok(categoryreposity.GetFullById(id));
             }
             catch
             {

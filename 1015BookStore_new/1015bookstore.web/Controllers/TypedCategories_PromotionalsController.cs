@@ -1,7 +1,6 @@
 ﻿using _1015bookstore.web.Model;
 using _1015bookstore.web.Repository;
 using _1015bookstore.web.Repository.IRepository;
-using _1015bookstore.web.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,13 +8,12 @@ namespace _1015bookstore.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class TypedCategories_PromotionalsController : ControllerBase
     {
-        private readonly ICategoryRepository categoryreposity;
-
-        public CategoriesController(ICategoryRepository _categoryreposity)
+        private readonly ITypedCategories_PromotionalsRepository typedCategories_promotionalsrepository;
+        public TypedCategories_PromotionalsController(ITypedCategories_PromotionalsRepository _typedCategories_promotionalsrepository)
         {
-            categoryreposity = _categoryreposity;
+            typedCategories_promotionalsrepository = _typedCategories_promotionalsrepository;
         }
 
         [HttpGet]
@@ -23,7 +21,7 @@ namespace _1015bookstore.web.Controllers
         {
             try
             {
-                return Ok(categoryreposity.GetAll());
+                return Ok(typedCategories_promotionalsrepository.GetAll());
             }
             catch
             {
@@ -31,12 +29,33 @@ namespace _1015bookstore.web.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetByid(int id)
+        [HttpGet("GetByUserid/{id}")]
+        public IActionResult GetByCategoryId(int cateid)
         {
             try
             {
-                var data = categoryreposity.GetById(id);
+                var data = typedCategories_promotionalsrepository.GetByCategoryId(cateid);
+                if (data != null)
+                {
+                    return Ok(data);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpGet("GetByProductid/{id}")]
+        public IActionResult GetByPromotionalId(int promotionalid)
+        {
+            try
+            {
+                var data = typedCategories_promotionalsrepository.GetByPromotionalId(promotionalid);
                 if (data != null)
                 {
                     return Ok(data);
@@ -53,11 +72,11 @@ namespace _1015bookstore.web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(int userid, CategoryModel cate)
+        public IActionResult Add(TypedCategories_PromotionalsModel item)
         {
             try
             {
-                return Ok(categoryreposity.Add(userid, cate));
+                return Ok(typedCategories_promotionalsrepository.Add(item));
             }
             catch
             {
@@ -66,11 +85,11 @@ namespace _1015bookstore.web.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int cateid, int promotionalid)
         {
             try
             {
-                categoryreposity.Delete(id);
+                typedCategories_promotionalsrepository.Delete(cateid, promotionalid);
                 return Ok();
             }
             catch
@@ -80,38 +99,12 @@ namespace _1015bookstore.web.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, int userid, CategoryModel cate)
+        public IActionResult Update(TypedCategories_PromotionalsModel item)
         {
             try
             {
-                categoryreposity.Update(id, userid, cate);
+                typedCategories_promotionalsrepository.Update(item);
                 return NoContent();
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        [HttpGet("GetFull")]
-        public IActionResult GetFull()
-        {
-            try
-            {
-                return Ok(categoryreposity.GetFull());
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        [HttpGet("GetFullById")]
-        public IActionResult GetFullById(int id)
-        {
-            try
-            {
-                return Ok(categoryreposity.GetFullById(id));
             }
             catch
             {

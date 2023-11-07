@@ -92,7 +92,7 @@ namespace _1015bookstore.web.Repository
                 {
                     id = item.id,
                     name = item.name,
-                    categories = dbcontext.Categories.Where(e => e.id == item.categoryparentid).Select(e => new CategoryVM
+                    categories = dbcontext.Categories.Where(e => e.categoryparentid == item.id).Select(e => new CategoryVM
                     {
                         id = e.id,
                         name = e.name,
@@ -109,7 +109,7 @@ namespace _1015bookstore.web.Repository
             {
                 id = item.id,
                 name = item.name,
-                categories = dbcontext.Categories.Where(e => e.id == item.categoryparentid).Select(e => new CategoryVM
+                categories = dbcontext.Categories.Where(e => e.categoryparentid == item.id).Select(e => new CategoryVM
                 {
                     id = e.id,
                     name = e.name,
