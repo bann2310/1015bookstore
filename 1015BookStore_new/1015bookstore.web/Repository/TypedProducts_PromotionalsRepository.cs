@@ -17,7 +17,7 @@ namespace _1015bookstore.web.Repository
 
         public TypedProducts_PromotionalsVM Add(TypedProducts_PromotionalsModel item)
         {
-            var _item = new TypedProducts_PromotionalsVM
+            var _item = new TypedProducts_Promotionals
             {
                 product_id = item.product_id,
                 promotional_id = item.promotional_id,

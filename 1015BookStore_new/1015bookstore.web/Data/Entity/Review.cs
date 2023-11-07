@@ -40,6 +40,8 @@ namespace _1015bookstore.web.Data.Entity
         {
             createdtime = DateTime.Now;
             is_status = status.Normal;
+            deletedtime = new DateTime();
+            deletedby = null;
         }
     }
 }

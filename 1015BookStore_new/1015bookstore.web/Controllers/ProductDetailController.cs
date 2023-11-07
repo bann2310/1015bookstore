@@ -1,5 +1,4 @@
 ﻿using _1015bookstore.web.Model;
-using _1015bookstore.web.Repository;
 using _1015bookstore.web.Repository.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,12 +7,12 @@ namespace _1015bookstore.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartItemsController : ControllerBase
+    public class ProductDetailController : ControllerBase
     {
-        private readonly ICartItemRepository cartitemrepository;
-        public CartItemsController(ICartItemRepository _cartitemrepository) 
+        private readonly IProductDetailRepository productdetailrepository;
+        public ProductDetailController(IProductDetailRepository _productdetailrepository)
         {
-            cartitemrepository = _cartitemrepository;
+            productdetailrepository = _productdetailrepository;
         }
 
         [HttpGet]
@@ -21,7 +20,7 @@ namespace _1015bookstore.web.Controllers
         {
             try
             {
-                return Ok(cartitemrepository.GetAll());
+                return Ok(productdetailrepository.GetAll());
             }
             catch
             {
@@ -29,33 +28,12 @@ namespace _1015bookstore.web.Controllers
             }
         }
 
-        [HttpGet("GetByUserId/{id}")]
-        public IActionResult GetByUserId(int userid)
-        {
-            try
-            {
-                var data = cartitemrepository.GetByUserId(userid);
-                if (data != null)
-                {
-                    return Ok(data);
-                }
-                else
-                {
-                    return NotFound();
-                }
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        [HttpGet("GetByProductId/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetByProductId(int productid)
         {
             try
             {
-                var data = cartitemrepository.GetByProductId(productid);
+                var data = productdetailrepository.GetByProductId(productid);
                 if (data != null)
                 {
                     return Ok(data);
@@ -72,11 +50,11 @@ namespace _1015bookstore.web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(CartItemModel item)
+        public IActionResult Add(ProductDetailModel item)
         {
             try
             {
-                return Ok(cartitemrepository.Add(item));
+                return Ok(productdetailrepository.Add(item));
             }
             catch
             {
@@ -84,12 +62,12 @@ namespace _1015bookstore.web.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult Delete(int userid, int productid)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int productid)
         {
             try
             {
-                cartitemrepository.Delete(userid, productid);
+                productdetailrepository.Delete(productid);
                 return Ok();
             }
             catch
@@ -98,12 +76,12 @@ namespace _1015bookstore.web.Controllers
             }
         }
 
-        [HttpPut]
-        public IActionResult Update(CartItemModel item)
+        [HttpPut()]
+        public IActionResult Update(ProductDetailModel item)
         {
             try
             {
-                cartitemrepository.Update(item);
+                productdetailrepository.Update(item);
                 return NoContent();
             }
             catch

@@ -1,4 +1,5 @@
 ﻿using _1015bookstore.web.Data;
+using _1015bookstore.web.Data.Entity;
 using _1015bookstore.web.Model;
 using _1015bookstore.web.Repository.IRepository;
 using _1015bookstore.web.ViewModel;
@@ -16,7 +17,7 @@ namespace _1015bookstore.web.Repository
 
         public TypedUsers_PromotionalsVM Add(TypedUsers_PromotionalsModel item)
         {
-            var _item = new TypedUsers_PromotionalsVM
+            var _item = new TypedUsers_Promotionals
             {
                 user_id = item.user_id,
                 promotional_id = item.promotional_id,

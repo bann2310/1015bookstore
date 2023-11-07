@@ -1,4 +1,5 @@
 ﻿using _1015bookstore.web.Data;
+using _1015bookstore.web.Data.Entity;
 using _1015bookstore.web.Model;
 using _1015bookstore.web.Repository.IRepository;
 using _1015bookstore.web.ViewModel;
@@ -16,7 +17,7 @@ namespace _1015bookstore.web.Repository
 
         public TypedUsers_UserTypesVM Add(TypedUsers_UserTypesModel item)
         {
-            var _item = new TypedUsers_UserTypesVM
+            var _item = new TypedUsers_UserTypes
             {
                 usertype_id = item.usertype_id,
                 user_id = item.user_id,
