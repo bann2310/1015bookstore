@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1015bookstore.web.Data;
 
@@ -11,9 +12,11 @@ using _1015bookstore.web.Data;
 namespace _1015bookstore.web.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231108094636_fixorderdatabase")]
+    partial class fixorderdatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,10 +36,15 @@ namespace _1015bookstore.web.Migrations
                     b.Property<float>("price")
                         .HasColumnType("real");
 
+                    b.Property<int>("productid")
+                        .HasColumnType("int");
+
                     b.Property<int>("quantity")
                         .HasColumnType("int");
 
                     b.HasKey("product_id", "user_id");
+
+                    b.HasIndex("productid");
 
                     b.HasIndex("user_id");
 
@@ -182,6 +190,7 @@ namespace _1015bookstore.web.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("image")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("is_status")
@@ -191,6 +200,7 @@ namespace _1015bookstore.web.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("more_image")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("name")
@@ -604,10 +614,9 @@ namespace _1015bookstore.web.Migrations
                 {
                     b.HasOne("_1015bookstore.web.Data.Entity.Product", "product")
                         .WithMany("cartitems")
-                        .HasForeignKey("product_id")
+                        .HasForeignKey("productid")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_CartItem_Product");
+                        .IsRequired();
 
                     b.HasOne("_1015bookstore.web.Data.Entity.User", "user")
                         .WithMany("cartitems")

@@ -41,10 +41,10 @@ namespace _1015bookstore.web.Data
                 .HasForeignKey(e => e.user_id)
                 .HasConstraintName("FK_CartItem_User");
 
-                entity.HasOne(e => e.user)
+                entity.HasOne(e => e.product)
                 .WithMany(e => e.cartitems)
-                .HasForeignKey(e => e.user_id)
-                .HasConstraintName("FK_CartItem_User");
+                .HasForeignKey(e => e.product_id)
+                .HasConstraintName("FK_CartItem_Product");
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -55,8 +55,6 @@ namespace _1015bookstore.web.Data
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(e => e.id);
-
-                entity.Property(e => e.orderdate).HasDefaultValueSql("getutcdate()");
 
                 entity.HasOne(e => e.user)
                 .WithMany(e => e.orders)

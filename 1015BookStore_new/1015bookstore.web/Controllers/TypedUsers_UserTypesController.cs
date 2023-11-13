@@ -83,7 +83,7 @@ namespace _1015bookstore.web.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public IActionResult Delete(int usertypeid, int userid)
         {
             try
@@ -97,7 +97,7 @@ namespace _1015bookstore.web.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public IActionResult Update(TypedUsers_UserTypesModel item)
         {
             try

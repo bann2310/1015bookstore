@@ -22,9 +22,9 @@ namespace _1015bookstore.web.Data.Entity
 
         public virtual Category category { get; set; }
 
-        public string image { get; set; }
+        public string? image { get; set; }
 
-        public string more_image { get; set; }
+        public string? more_image { get; set; }
 
         [Range(0, float.MaxValue)]
         public float price { get; set; }
